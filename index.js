@@ -58,7 +58,7 @@ const extractQuestionText = (questions) => {
 
 // Use GPT to analyze the text and extract common topics
 const analyzeQuestionText = async (questionText) => {
-  let question = `Imagine you are analyzing these questions submitted by developers on StackExchange, what themes do you see arise from them? Are there common questions that people ask? What are the common topics? Please provide a specific list of highly defined tutorial topics that could be written that would address these questions, only provide the list of tutorial titles in your response and nothing else before or after it: ${questionText}`
+  let question = `Imagine you are analyzing these questions submitted by developers on StackExchange, what themes do you see arise from them? Are there common questions that people ask? What are the common topics? Please provide a specific list of highly defined tutorial topics that could be written that would address these questions, only provide the list of tutorial titles in your response and nothing else before or after it. Make each tutorial title concise and SEO friendly: ${questionText}`
   const response = await gpt.sendMessage(question, {
     max_tokens: 100,
     n: 5, // number of topics to extract
