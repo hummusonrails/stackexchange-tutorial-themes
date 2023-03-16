@@ -51,14 +51,21 @@ const analyzeQuestionText = async (questionText) => {
     frequency_penalty: 0,
   });
   return response.text;
-  // return response.choices[0].text;
 };
 
 // Main function to retrieve recent questions from the Substrate site, analyze them using GPT, and generate tutorial and blog post ideas
 const main = async () => {
   const questions = await getRecentQuestions();
   const questionText = extractQuestionText(questions);
-  const topics = await analyzeQuestionText(questionText);
+  let topics = await analyzeQuestionText(questionText);
+  // remove the leading '- ' from each topic and add a newline
+  topics = topics.replace(/- /g, '').replace(/,/g, '\n');
+  // remove leading sentence starting with "List of" 
+  topics = topics.replace(/List of.*/g, '');
+  // remove "Tutorial Title: " from the beginning of each topic, case insensitive
+  topics = topics.replace(/Tutorial Title: /gi, '');
+  // remove any leading or trailing whitespace
+  topics = topics.trim();
   await fs.writeFile('topics.txt', topics);
   return topics;
 };
