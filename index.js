@@ -6,6 +6,22 @@ import axios from 'axios';
 import { ChatGPTAPI } from 'chatgpt';
 import fs from 'fs/promises';
 
+// instantiate the db
+import db from './db.js';
+
+const saveTopicsToDatabase = async (topics) => {
+  const query = `
+    INSERT INTO topics (content)
+    VALUES ($1)
+  `;
+
+  try {
+    await db.query(query, [topics]);
+    console.log('Topics saved to the database.');
+  } catch (error) {
+    console.error('Error saving topics to the database:', error);
+  }
+};
 // Define StackExchange API endpoint and parameters for the Substrate site
 const apiUrl = 'https://api.stackexchange.com/2.3/questions?site=substrate&pagesize=50';
 const pageSizeParam = 100; // number of questions to retrieve per request
@@ -66,9 +82,16 @@ const main = async () => {
   topics = topics.replace(/Tutorial Title: /gi, '');
   // remove any leading or trailing whitespace
   topics = topics.trim();
-  await fs.writeFile('topics.txt', topics);
-  return topics;
-};
+  // each new topic can be multiple lines, and begins with a number and a period
+  // split the topics into an array of topics
+  topics = topics.split(/\n\d+\./);
+  // remove any empty strings from the array
+  topics = topics.filter((topic) => topic !== '');
+  // add to the database each topic
+  topics.forEach(async (topic) => {
+    await saveTopicsToDatabase(topic);
+  });
+}
 
 // Call the main function
 main();

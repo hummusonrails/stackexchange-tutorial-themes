@@ -1,8 +1,7 @@
-// server.js
-
 import express from 'express';
 import path from 'path';
 import fs from 'fs/promises';
+import db from './db.js';
 import cookieParser from 'cookie-parser';
 import { fileURLToPath } from 'url';
 import { main } from './index.js';
@@ -18,21 +17,36 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
+
 app.get('/', async (req, res) => {
   const lastGenerated = req.cookies.lastGenerated;
   const now = new Date();
   let topics;
 
-  if (!lastGenerated || now - lastGenerated >= 7 * 24 * 60 * 60 * 1000) {
-    topics = await main();
+  const fetchLatestTopicsFromDatabase = async () => {
+    const query = `
+      SELECT content
+      FROM topics
+      ORDER BY created_at DESC
+    `;
+  
+    try {
+      const result = await db.query(query);
+      return result.rows.map(row => row.content);
+    } catch (error) {
+      console.error('Error fetching topics from the database:', error);
+    }
+  };
+
+  if (!lastGenerated || now - new Date(lastGenerated) >= 7 * 24 * 60 * 60 * 1000) {
+    const topicsString = await main();
+    topics = topicsString;
     res.cookie('lastGenerated', now);
   } else {
-    try {
-      topics = (await fs.readFile('topics.txt', 'utf8')).split('\n');
-    } catch (error) {
-      console.error(`Error reading topics from file: ${error}`);
-      topics = [];
-    }
+    const topicsArray = await fetchLatestTopicsFromDatabase();
+    topics = topicsArray;
+    console.log('Topics fetched from the database.');
+    console.log(topics);
   }
   res.render('index', { topics });
 });
