@@ -53,7 +53,11 @@ To use the app, simply run the following command in your terminal:
 npm start
 ```
 
-The app will retrieve recent questions from the specified StackExchange site, analyze them using ChatGPT, and generate tutorial and blog post ideas based on the common themes. The results will be displayed in your terminal.
+The app will retrieve recent questions from the specified StackExchange site, analyze them using ChatGPT, and generate tutorial and blog post ideas based on the common themes. 
+
+The results will be available in your browser locally on the `3000` port. For example, if you're running the app on your local machine, you can view the results at `http://localhost:3000`. Once you've deployed the app to a server, you can view the results at the address of the server.
+
+New results will be generated once a week, and the results will be updated automatically when the first visit in the next week to the site occurs.
 
 ## Code of Conduct
 
