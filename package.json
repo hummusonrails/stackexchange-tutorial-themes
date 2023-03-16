@@ -1,0 +1,18 @@
+{
+  "name": "stackexchange-question-analyzer",
+  "version": "1.0.0",
+  "description": "A Node.js app that retrieves recent questions from a StackExchange site and uses ChatGPT to analyze the questions for common themes.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Ben Greenberg",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "chatgpt": "^5.1.1",
+    "cheerio": "^1.0.0-rc.5",
+    "dotenv": "^16.0.3"
+  }
+}
