@@ -5,11 +5,10 @@ import { config } from 'dotenv';
 config();
 
 const pool = new Pool({
-  host: process.env.DATABASE_URL,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
+  host: process.env.DATABASE_URL || process.env.DB_HOST,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 export default {
