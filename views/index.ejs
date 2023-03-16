@@ -9,20 +9,50 @@
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col">
   <%- include('partials/header.ejs') %>
-  <main class="container mx-auto px-4 py-8 flex-grow">
+
+  <div id="loading-message" class="text-lg font-semibold mb-4">
+    Fetching tutorial topics, please wait...
+  </div>
+
+  <main id="topics-container" class="container mx-auto px-4 py-8 flex-grow" style="display: none;">
     <h1 class="text-4xl font-bold mb-8">List of tutorial topics generated in this past week:</h1>
-    <% if (Array.isArray(topics) && topics.length > 0) { %>
       <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <% topics.forEach(topic => { %>
-          <div class="bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-xl font-semibold mb-4 text-gray-800"><%= topic %></h2>
-          </div>
-        <% }) %>
       </div>
-    <% } else { %>
-      <p class="text-lg">No topics available.</p>
-    <% } %>
   </main>
   <%- include('partials/footer.ejs') %>
 </body>
 </html>
+
+<script>
+  async function fetchTopics() {
+    try {
+      const response = await fetch('/topics');
+      const topics = await response.json();
+      return topics;
+    } catch (error) {
+      console.error('Error fetching topics:', error);
+    }
+  }
+
+  async function displayTopics() {
+    const topics = await fetchTopics();
+    const loadingMessage = document.getElementById('loading-message');
+    const topicsContainer = document.getElementById('topics-container');
+    const topicsList = document.getElementById('topics-list');
+
+    if (topics && topics.length) {
+      loadingMessage.style.display = 'none';
+      topicsContainer.style.display = 'block';
+      topics.forEach((topic) => {
+        const topicCard = document.createElement('div');
+        topicCard.className = 'bg-white p-6 rounded-lg shadow-md';
+        topicCard.textContent = topic;
+        topicsList.appendChild(topicCard);
+      });
+    } else {
+      loadingMessage.textContent = 'Error fetching tutorial topics.';
+    }
+  }
+
+  displayTopics();
+</script>

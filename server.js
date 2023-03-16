@@ -19,6 +19,11 @@ app.use(cookieParser());
 
 
 app.get('/', async (req, res) => {
+  res.render('index');
+});
+
+
+app.get('/topics', async (req, res) => {
   const lastGenerated = req.cookies.lastGenerated;
   const now = new Date();
   let topics;
@@ -48,8 +53,10 @@ app.get('/', async (req, res) => {
     console.log('Topics fetched from the database.');
     console.log(topics);
   }
-  res.render('index', { topics });
+
+  res.json(topics);
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
