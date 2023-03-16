@@ -1,9 +1,11 @@
+
 import dotenv from 'dotenv';
 dotenv.config();
 
 import axios from 'axios';
 import cheerio from 'cheerio';
 import { ChatGPTAPI } from 'chatgpt';
+import fs from 'fs/promises';
 
 // Define StackExchange API endpoint and parameters for the Substrate site
 const apiUrl = 'https://api.stackexchange.com/2.3/questions?site=substrate&pagesize=50';
@@ -41,7 +43,7 @@ const extractQuestionText = (questions) => {
 
 // Use GPT to analyze the text and extract common topics
 const analyzeQuestionText = async (questionText) => {
-  let question = `Imagine you are analyzing these questions, what themes do you see arise from them? Are there common questions that people ask? What are the common topics? Please provide a specific list of highly defined tutorial topics that could be written that would address these questions: ${questionText}`
+  let question = `Imagine you are analyzing these questions, what themes do you see arise from them? Are there common questions that people ask? What are the common topics? Please provide a specific list of highly defined tutorial topics that could be written that would address these questions, only provide the list in your response and nothing else: ${questionText}`
   const response = await gpt.sendMessage(question, {
     max_tokens: 100,
     n: 5, // number of topics to extract
@@ -49,19 +51,7 @@ const analyzeQuestionText = async (questionText) => {
     presence_penalty: 0.5,
     frequency_penalty: 0,
   });
-  return response;
-  // return response.choices[0].text;
-};
-
-// Use GPT to generate tutorial and blog post ideas based on the common topics
-const generateIdeas = async (topics) => {
-  const response = await gpt.sendMessage(`Tutorial and blog post ideas based on the topics: ${topics}`, {
-    max_tokens: 100,
-    n: 5, // number of ideas to generate
-    stop: '\n', // use newline character to separate ideas
-    presence_penalty: 0.5,
-    frequency_penalty: 0,
-  });
+  return response.text;
   // return response.choices[0].text;
 };
 
@@ -70,12 +60,11 @@ const main = async () => {
   const questions = await getRecentQuestions();
   const questionText = extractQuestionText(questions);
   const topics = await analyzeQuestionText(questionText);
-  console.log('Common topics:');
-  console.log(topics);
-  const ideas = await generateIdeas(topics);
-  console.log('Tutorial and blog post ideas:');
-  console.log(ideas);
+  await fs.writeFile('topics.txt', topics);
+  return topics;
 };
 
 // Call the main function
 main();
+
+export { main };

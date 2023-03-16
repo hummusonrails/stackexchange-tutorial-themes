@@ -1,0 +1,47 @@
+How to determine a Polkadot nominator's stake amount
+Troubleshooting Astar RPC endpoint errors between specific blocks 
+Understanding default paths and how to set them in the command line 
+Storing offchain mutable values in Substrate 
+Changing EVM gas fees charged in calling precompile functions 
+Parsing extrinsics with the scale decoder 
+Migrating data from Solochain to Parachain 
+Parsing extrinsics using the Golang decoder 
+Understanding the differences between two ways to get blockhash 
+Troubleshooting issues with cross pallet methods calling 
+Providing host functions and making them callable from pallets 
+Fixing slow parachain block time on rococo-local 
+Understanding refTime and proofSize 
+Troubleshooting sp-io v7.0.0 compile errors 
+Rotating private keys in Substrate 
+Enabling teleportation for genesis hash in Parity-bridges 
+Finding a GeneralKey or pallet-instance used for in MultiLocation for XCM 
+Calculating total staked and rewarded for validation per era/block 
+Troubleshooting errors when running Swanky suite contract queries 
+Understanding storage deposits required for all pallets to operate extrinsics 
+Sending custom messages or transferring assets in Parity-bridges-common 
+Instructing XCM (Send message) function to send a message through parity-bridges-common 
+Troubleshooting frontend data fetching issues 
+Troubleshooting ENOENT errors when compiling and deploying Swanky contracts 
+Understanding overflow protection in the Ask! framework 
+Troubleshooting contract panicking issues related to getting the return type of Balance from ink::env::call::build_call 
+Using kvdb Rust library with ParityDB as a key-value store abstraction 
+Troubleshooting test case issues with Bags-list pallet 
+Encoding any `MultiAddress<AccountId, AccountIndex>` variant to SS58 
+Fixing Contract.outOfGas errors 
+Combining instanced pallets with non-instanced pallets 
+Expectations after cross contract call failure for the end-user 
+Identifying emitted events from concrete smart contracts 
+Properly handling cross contract call errors 
+Troubleshooting e2e test issues on flipper 
+Troubleshooting "Bad input data provided to execute_block" error when running try-runtime's follow-chain 
+Transferring the parachain slot to other parachain 
+Instantiating a contract with initialSupply 
+Modifying Genesis file/WASM after getting the slot but before parachain creation 
+Estimating gas limit required for ink contract deployment 
+Signing a payload using ECDSA in PolkadotJS 
+Generating Go wrappers for ink smart contracts 
+Troubleshooting "ENOENT: no such file or directory" error when deploying contracts with Swanky 
+Adding a Substrate token created with a smart contract to a wallet and choosing a wallet for local environment testing 
+Compiling pallet_contracts_rpc_runtime_api::ContractsApi under v0.9.35 
+Troubleshooting OutofGas errors when uploading smart contracts 
+Understanding why Polkadot.js SignAndSend SuccessResponse does not contain all events emitted in a transaction
