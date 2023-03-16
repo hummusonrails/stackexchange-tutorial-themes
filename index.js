@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import axios from 'axios';
-import cheerio from 'cheerio';
 import { ChatGPTAPI } from 'chatgpt';
 import fs from 'fs/promises';
 
