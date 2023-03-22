@@ -58,7 +58,13 @@ const extractQuestionText = (questions) => {
 
 // Use GPT to analyze the text and extract common topics
 const analyzeQuestionText = async (questionText) => {
-  let question = `Imagine you are analyzing these questions submitted by developers on StackExchange, what themes do you see arise from them? Are there common questions that people ask? What are the common topics? Please provide a specific list of highly defined tutorial topics that could be written that would address these questions, only provide the list of tutorial titles in your response and nothing else before or after it. Make each tutorial title concise and SEO friendly: ${questionText}`
+  let question = `
+      Imagine you are a technical writer or developer advocate looking at the following questions submitted by 
+      developers on StackExchange. Please provide a list of tutorial titles that are the result of your analysis
+      of the themes that emerge from the questions. The tutorial titles should not be a direct copy of the question
+      title, but should be a concise and SEO friendly title that describes the theme.
+      Here are the questions: ${questionText}
+    `
   const response = await gpt.sendMessage(question, {
     max_tokens: 100,
     n: 5, // number of topics to extract
@@ -74,6 +80,7 @@ const main = async () => {
   const questions = await getRecentQuestions();
   const questionText = extractQuestionText(questions);
   let topics = await analyzeQuestionText(questionText);
+  console.log(topics);
   // remove the leading '- ' from each topic and add a newline
   topics = topics.replace(/- /g, '').replace(/,/g, '\n');
   // remove leading sentence starting with "List of" 

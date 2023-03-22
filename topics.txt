@@ -1,50 +1,50 @@
-1. "Implementing Unified Accounts with POS"
-2. "How to determine a Polkadot nominator's stake amount"
-3. "Resolving Astar RPC endpoint errors between block ranges"
-4. "Understanding the default path when --base-path is not set"
-5. "Storing offchain mutable values: Best Practices"
-6. "Changing EVM gas fee charged in calling precompile functions in Frontier"
-7. "Using the Scale Decoder to Parse Extrinsics"
-8. "Migrating Solochain data to Parachain: Step-by-Step Guide"
-9. "Parsing Extrinsics using Golang Decoder: A Comprehensive Guide"
-10. "Explaining the difference between two ways to get Blockhash"
-11. "Debugging Cross Pallet Methods Calling Not Working Issues"
-12. "Writing Host Functions and making it callable from pallets: Best Practices"
-13. "Troubleshooting Common Parachain Block Production Errors"
-14. "Fixing Slow Parachain Block Time on Rococo-local: Best Practices"
-15. "Understanding RefTime and ProofSize"
-16. "Troubleshooting sp-io v7.0.0 Compilation Errors"
-17. "Rotating Private Keys: Best Practices"
-18. "Enabling Teleportation for Genesis Hash in Parity-Bridges: A Step-by-Step Guide"
-19. "Finding GeneralKey or Pallet-Instance used for MultiLocation in XCM"
-20. "Calculating Total Staked and Rewarded for Validation per Era/Block"
-21. "Troubleshooting Swanky Suite Contract Query Errors"
-22. "Understanding Storage Deposit Requirements for All Pallets' Extrinsics"
-23. "Sending Custom Message and Transferring Assets in Parity-Bridges-Common: A Complete Guide"
-24. "Sending Messages through XCM Function in Parity-Bridges-Common: A Comprehensive Guide"
-25. "Solving Frontend Data Fetching Issues: Best Practices"
-26. "Troubleshooting ENOENT Error in Swanky Contract Compilation and Deployment"
-27. "Understanding Ask! Framework and Overflow Protection"
-28. "Resolving Balance Return Type Panic Issues in ink::env::call::build_call"
-29. "Using kvdb Rust Library with ParityDB as Key-Value Store Abstraction: A Detailed Guide"
-30. "Addressing Bags-List Pallet Test Case Errors"
-31. "Encoding any MultiAddress<AccountId
- AccountIndex> Variant to SS58: A Comprehensive Guide"
-32. "Fixing Contract.outOfGas Error"
-33. "Combining Instanced Pallets with Non-Instanced Pallets: Best Practices"
-34. "Understanding End-User Expectations after Cross Contract Call Failure"
-35. "Identifying Emitted Events from Smart Contracts: Best Practices"
-36. "Handling Cross Contract Call Errors: A Comprehensive Guide"
-37. "Troubleshooting Errors in Flipper E2E Tests"
-38. "Resolving 'Bad input data provided to execute_block' Errors in try-runtime's follow-chain"
-39. "Transferring Parachain Slot to Other Parachain: A Step-by-Step Guide"
-40. "Instantiating Contract with InitialSupply: A Comprehensive Guide"
-41. "Modifying Genesis File/WASM after Getting the Slot but before Parachain Creates the Block"
-42. "Estimating Gas Limit Required for Ink Contract Deployment: Best Practices"
-43. "Signing Payload using ECDSA in PolkadotJS: A Comprehensive Guide"
-44. "Generating Go Wrappers for Ink Smart Contracts: A Step-by-Step Guide"
-45. "Troubleshooting ENOENT Errors in Swanky Deploy"
-46. "Adding Substrate Token Created with Smart Contract to Wallet: Best Practices"
-47. "Compiling ContractApi under v0.9.35: A Comprehensive Guide"
-48. "Resolving contracts.OutofGas when Uploading Smart Contract"
-49. "Understanding Missing Events in SuccessResponse of SignAndSend Method in Polkadot.js"
+1. Understanding Invalid Blocks and Transactions in Substrate
+2. Implementing Custom ImportQueue: A Step-by-Step Guide
+3. Adding Signatures to Transactions in PJS Apps
+4. How to Handle "Transaction has a bad signature" Error in Substrate
+5. Mitigating Expensive Runtime API Attacks in Substrate
+6. Resolving "transactionPaymentApi.queryInfo runtime call issue" Error in Substrate
+7. Compiling Pallets to no-std/WASM in Substrate: A Beginner's Guide
+8. Fixing "Invalid Transaction: Transaction has an ancient birth block" Error in Substrate
+9. Teleporting Assets Across Chains using Substrate Bridge: A Comprehensive Guide
+10. Working with Polkadot-JS Enums in TypeScript: Best Practices
+11. Extracting Raw Payload from Polkadot JS Transactions: A Step-by-Step Guide
+12. Understanding Aura Consensus Algorithm in Substrate
+13. Retrieving XCM Base Weight for Kusama and Other Substrate Chains Using Polkadot JS
+14. Fixing Function Imports Error in Substrate Runtime
+15. Sending Large Vectors in Extrinsic Calls in Substrate
+16. Handling Expected Struct `Vec`, Found `()` in Substrate
+17. Integrating subxt with yew.rs Front-End App: A Quick Tutorial
+18. Installing Substrate on M1 Macbook: Troubleshooting Guide
+19. Unlocking Parachain using Upward Message: A Comprehensive Guide
+20. Decoding Metadata with Subxt: Common Issues and Solutions
+21. Contract Upgrade with Chain Extension in Substrate: A Step-by-Step Guide
+22. Converting SS58 Address to Pubkey in Substrate: Best Practices
+23. Deploying and Accessing Substrate Solo Node Remotely Using Polkadot.js Front-end: A Comprehensive Guide
+24. Handling Cross-Contract Call Errors in Substrate
+25. Managing End-User Expectations after Cross-Contract Call Failure in Substrate
+26. Automated Extrinsic Submission for Testing in Substrate: Best Practices
+27. Troubleshooting Nominations in Substrate Staking
+28. Solving RpcError 1010 in Substrate
+29. Retrieving Native Coin Total Issuance History through API in Substrate
+30. Understanding Unbonding Transactions in Substrate
+31. Troubleshooting Token(CannotCreate) Error in Substrate
+32. Combining Instanced and Non-instanced Pallets in Substrate: Best Practices
+33. Solving RPC Connection Errors in Substrate
+34. Finding Polkadot-JS API Implementation in Rust Substrate: Best Practices
+35. Troubleshooting Deployment Issues on Rococo Testnet in Substrate
+36. Reverse Engineering Private Key into Mnemonic: Feasibility and Best Practices
+37. Generating Raw Chainspec from Plain Chainspec in Substrate: A Step-by-Step Guide
+38. Uploading Phat Contract Build Using Cargo-contract-2.1.0 in Substrate: Troubleshooting Guide
+39. Troubleshooting "Bad input data provided to execute_block" Error in Substrate
+40. Accessing Chain Extension Method from Another Module in Ink!: A Comprehensive Guide
+41. Charging Users on Sender and Receiver Chains with OriginKind::Native in Substrate XCM Transact
+42. Estimating Gas for Ink Contracts Transactions for Weights V2 in Substrate: Best Practices
+43. Creating Workspace from Selected Pallets and Primitives in Substrate: Troubleshooting Guide
+44. Troubleshooting Multisig Storage Showing Calls from Another One in Substrate
+45. Understanding the Role of Features = ["std"] in Dev Dependencies in Substrate
+46. Changing Token Symbol on Adding Properties on Chain in Substrate: A Step-by-Step Guide
+47. Using subscan-essentials EVM plugin in Substrate: Best Practices
+48. Polkadot Version 36 App_crypto! Error: Troubleshooting Guide
+49. Signing Payload Using ECDSA in PolkadotJS: A Beginner's Guide
+50. Rendering Existing Values in Update Form in Polkadot JS UI: Best Practices
