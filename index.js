@@ -1,4 +1,3 @@
-
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -72,6 +71,7 @@ const analyzeQuestionText = async (questionText) => {
     presence_penalty: 0.5,
     frequency_penalty: 0,
   });
+
   return response.text;
 };
 
@@ -80,7 +80,6 @@ const main = async () => {
   const questions = await getRecentQuestions();
   const questionText = extractQuestionText(questions);
   let topics = await analyzeQuestionText(questionText);
-  console.log(topics);
   // remove the leading '- ' from each topic and add a newline
   topics = topics.replace(/- /g, '').replace(/,/g, '\n');
   // remove leading sentence starting with "List of" 
