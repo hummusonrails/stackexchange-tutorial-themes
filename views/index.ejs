@@ -35,24 +35,35 @@
   }
 
   async function displayTopics() {
-    const topics = await fetchTopics();
-    const loadingMessage = document.getElementById('loading-message');
-    const topicsContainer = document.getElementById('topics-container');
-    const topicsList = document.getElementById('topics-list');
+  const topics = await fetchTopics();
+  const loadingMessage = document.getElementById('loading-message');
+  const topicsContainer = document.getElementById('topics-container');
+  const topicsList = document.getElementById('topics-list');
 
-    if (topics && topics.length) {
-      loadingMessage.style.display = 'none';
-      topicsContainer.style.display = 'block';
-      topics.forEach((topic) => {
-        const topicCard = document.createElement('div');
-        topicCard.className = 'bg-white p-6 rounded-lg shadow-md';
-        topicCard.textContent = topic;
-        topicsList.appendChild(topicCard);
-      });
-    } else {
-      loadingMessage.textContent = 'Error fetching tutorial topics.';
-    }
+  if (topics && topics.length) {
+    loadingMessage.style.display = 'none';
+    topicsContainer.style.display = 'block';
+    topics.forEach((topic) => {
+      const topicCard = document.createElement('div');
+      topicCard.className = 'bg-white p-6 rounded-lg shadow-md';
+      topicCard.id = topic.id;
+      topicCard.textContent = topic.content;
+
+      // Create an anchor element to wrap the topic card
+      const topicLink = document.createElement('a');
+      topicLink.href = `/topics/${topic.id}`;
+      topicLink.style.textDecoration = 'none'; // Optional: remove the default underline for links
+
+      // Append the topic card to the anchor element
+      topicLink.appendChild(topicCard);
+
+      // Append the anchor element to the topics list
+      topicsList.appendChild(topicLink);
+    });
+  } else {
+    loadingMessage.textContent = 'Error fetching tutorial topics.';
   }
+}
 
-  displayTopics();
+displayTopics();
 </script>
