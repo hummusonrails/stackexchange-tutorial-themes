@@ -6,7 +6,7 @@ This is a Node.js app that retrieves recent questions from a StackExchange site 
 To use this app, you'll need to have Node.js installed on your machine. Once you have Node.js installed, you can clone the project from GitHub:
 
 ```
-git clone https://github.com/bencgreenberg/stackexhange-tutorial-themes.git
+git clone https://github.com/bencgreenberg/stackexchange-tutorial-themes.git
 ```
 
 After cloning the project, navigate to the project directory and install the required dependencies:
@@ -57,7 +57,7 @@ The app will retrieve recent questions from the specified StackExchange site, an
 
 The results will be available in your browser locally on the `3000` port. For example, if you're running the app on your local machine, you can view the results at `http://localhost:3000`. Once you've deployed the app to a server, you can view the results at the address of the server.
 
-New results will be generated once a week, and the results will be updated automatically when the first visit in the next week to the site occurs.
+New results will be generated once a month, and the results will be updated automatically.
 
 ## Code of Conduct
 
