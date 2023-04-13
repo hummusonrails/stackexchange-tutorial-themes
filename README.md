@@ -6,7 +6,7 @@ This is a Node.js app that retrieves recent questions from a StackExchange site 
 To use this app, you'll need to have Node.js installed on your machine. Once you have Node.js installed, you can clone the project from GitHub:
 
 ```
-git clone https://github.com/bencgreenberg/stackexchange-tutorial-themes.git
+git clone https://github.com/hummusonrails/stackexchange-tutorial-themes.git
 ```
 
 After cloning the project, navigate to the project directory and install the required dependencies:
